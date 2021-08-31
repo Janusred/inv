@@ -5,7 +5,10 @@ class GamesController {
 
     public async list(req: Request, res: Response) {
         //res.json({ text: 'Lista de juegos' });
+        const {id} = req.params;
         const games = await pool.query('SELECT * FROM piz');
+        
+        
         res.json(games);// consulta de datos en vista json
 
     }
@@ -13,6 +16,7 @@ class GamesController {
          //res.json({ text: 'un solo juego ' + req.params.id });
           const {id} = req.params;
          const games = await pool.query('SELECT * FROM piz WHERE id = ?', [id]);
+        
          if (games.lenth > 0){
              return res.json(games[0]);
          }
@@ -39,6 +43,7 @@ class GamesController {
         await pool.query('DELETE FROM piz WHERE id = ?', [id]);
         res.json({ message: "Eliminado" });
     }
+    
 }
 const gamesController = new GamesController();
 export default gamesController; 

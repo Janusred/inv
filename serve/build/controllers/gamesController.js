@@ -18,6 +18,7 @@ class GamesController {
         return __awaiter(this, void 0, void 0, function* () {
             //res.json({ text: 'Lista de juegos' });
             const games = yield database_1.default.query('SELECT * FROM piz');
+            
             res.json(games); // consulta de datos en vista json
         });
     }
