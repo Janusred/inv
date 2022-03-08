@@ -8,7 +8,9 @@ class GameRoutes{// la ruta tiene como nombre game
 this.config();
     }
     config():void{
-        this.router.get('/',gamesController.list);
+        this.router.get('/',gamesController.list);/**
+        establecemos en la ruta lo que el controlador debe controller debe concatenar o en dado caso 
+        donde comenzar a obtener la informacion */
         this.router.get('/:id',gamesController.getOne);
         
         this.router.post('/',gamesController.create);

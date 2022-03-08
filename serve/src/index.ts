@@ -7,7 +7,7 @@ import gameRoutes from './routes/gameRoutes';
 
 class Serve {
 public app : Application;
-
+//Variable publica de tipo aplication
  constructor(){
      this.app = express();
      this.config();
@@ -22,11 +22,12 @@ this.app.use(express.urlencoded({extended:false}));
  }
  routes():void{
 this.app.use(indexRoutes);// indicamos la ruta que utilizara nuestro index 
-this.app.use('/api/game', gameRoutes)
+this.app.use('/api/game', gameRoutes) /* indicamos nuestra ruta, pero asignamos una opcion mas la cual
+el usuario podra acceder a ella cuando escriba localhost//3000/api/game */
  }
  start(): void{
      this.app.listen(this.app.get('port'), () => {
-       console.log('En el puerto!!', this.app.get('port')); 
+       console.log('En el puerto!!', this.app.get('port')); //
        // ingresando a la REST API se conectara por el puerto 3000
      });
  }

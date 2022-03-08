@@ -13,7 +13,7 @@ class GamesController {
 
     }
     public  async getOne(req: Request, res: Response) {
-         //res.json({ text: 'un solo juego ' + req.params.id });
+         //res.json({ text: 'un solo juego ' + req.params.id }); consultas en postman
           const {id} = req.params;
          const games = await pool.query('SELECT * FROM piz WHERE id = ?', [id]);
         

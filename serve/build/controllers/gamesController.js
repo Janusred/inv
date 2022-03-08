@@ -17,14 +17,14 @@ class GamesController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             //res.json({ text: 'Lista de juegos' });
+            const { id } = req.params;
             const games = yield database_1.default.query('SELECT * FROM piz');
-            
             res.json(games); // consulta de datos en vista json
         });
     }
     getOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            //res.json({ text: 'un solo juego ' + req.params.id });
+            //res.json({ text: 'un solo juego ' + req.params.id }); consultas en postman
             const { id } = req.params;
             const games = yield database_1.default.query('SELECT * FROM piz WHERE id = ?', [id]);
             if (games.lenth > 0) {

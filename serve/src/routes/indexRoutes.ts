@@ -5,13 +5,14 @@ class IndexRoutes {
     router: Router = Router();
 
     constructor() {
-        this.config();
+        this.config();/** se implementa el metodo config para poder establecer la ruta inicial */
     }
     config(): void {
         this.router.get('/',indexController.index);
-        //se crea la ruta inicial de la app, para poder comprobar el fuincionamiento se manda un mensaje.
+        //se crea la ruta inicial de la app.
 
     }
 }
-const indexRoutes = new IndexRoutes();
+const indexRoutes = new IndexRoutes();/**
+intaciamos la clases con el enrutador */
 export default indexRoutes.router;
